@@ -6,9 +6,7 @@ body {
   display: grid;
   
   /* Use `grid-template` to control the sizing of these areas. */
-  /* grid-template: 150px 1fr .3fr / 350px 1fr; */
-  grid-template-rows: auto 1fr auto;
-  grid-template-columns: minmax(275px, 400px) 1fr;
+  grid-template: auto 1fr auto / minmax(275px, 400px) 1fr;
 
   /* Use `grid-template-areas` to define four named areas: `header`, `main`, `sidebar`, `footer`. */
   grid-template-areas:
