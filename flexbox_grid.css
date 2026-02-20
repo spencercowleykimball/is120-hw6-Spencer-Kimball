@@ -6,13 +6,17 @@ body {
   display: grid;
   
   /* Use `grid-template` to control the sizing of these areas. */
-  grid-template: 150px 1fr 1fr / 350px 1fr;
+  /* grid-template: 150px 1fr .3fr / 350px 1fr; */
+  grid-template-rows: auto 1fr auto;
+  grid-template-columns: minmax(275px, 400px) 1fr;
 
   /* Use `grid-template-areas` to define four named areas: `header`, `main`, `sidebar`, `footer`. */
   grid-template-areas:
     "header header"
     "sidebar main"
     "footer footer";
+    gap: 0;
+    box-sizing: border-box;
 }
 
 header {
@@ -32,8 +36,10 @@ main {
 }
 
 footer {
-  background-color: rgb(18, 172, 30);
   grid-area: footer;
+  background-color: rgb(18, 172, 30);
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 
@@ -42,43 +48,41 @@ footer {
 /* Use Flexbox in your `main` to arrange 3 cards. 
     The cards should use Flexbox internally as well. */
 .container-main {
-  height: 1fr;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  width: 1fr;
 }
 
 .item-main {
-  background-color: rgb(5, 5, 5);
-  /* border: 2px solid black; */
   display: flex;
-  /* width: 1fr; */
   flex-direction: row;
-  justify-content: center;
-  color: black;
-  height: 200px;
-  width: auto;
-  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  max-width: 1200px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  background-color: rgb(5, 5, 5);
+  padding: 10px;
 }
 
 .item-main-inner {
   background-color: rgb(251, 252, 251);
-  /* border: 2px solid black; */
   display: flex;
-  /* flex-wrap: wrap; */
   flex-direction: column;
   justify-content: center;
-  color: black;
-  height: 200px;
-  width: auto;
+  align-items: center;
+  height: 220px;
   border-radius: 0px 0px 10px 10px;
-  /* gap: 10px; */
-  margin-right: 5px;
-  margin-top: 10px;
+  padding: 12px;
+  box-sizing: border-box;
+  flex: 0 1 220px;
+  min-width: 160px;
+  margin-top: 20px;
 }
 
 h4 {
@@ -86,71 +90,77 @@ h4 {
     font-size: 20px;
     background-color: rgb(18, 172, 30);
     border-radius: 10px 10px 0px 0px;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0 0 10px 0;
+    padding: 6px 0;
+    width: 220px;
+}
+
+h3 {
+  color: rgb(18, 172, 30);
+  font-size: 40px;
+  margin-bottom: 0px;
+}
+
+h1 {
+  font-size: 80px;
+  margin: 0;
 }
 
 /* Navigation Menu Container and Items */
 .container-nav {
-  /* height: 550px; */
-  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 50px;
   flex-wrap: wrap;
+  padding-top: 20px;
 }
 
 .item-nav {
-  /* background-color: orange; */
-  /* border: 2px solid black; */
   font-size: 40px;
   color: black;
   height: 100px;
   width: 300px;
-  /* align-items: auto; */
-
 }
 
 /* Containers and Items for Footer */
 .container-footer {
-  height: 80px;
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 300px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
 .item-footer {
   font-size: 30px;
   color: black;
-  height: 150px;
-  width: auto;
-  text-align: left;
+  height: 100px;
+  text-align: center;
 }
 
 /* Containers and Items for Header */
 .container-header {
-  height: 80px;
-  width: 100%;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 100px;
-  flex-wrap: wrap;
+  gap: 10px;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  margin-left: 20px;
+  margin-right: 50px;
 }
 
 .item-header {
-  font-size: 80px;
+  /* font-size: 80px; */
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
   color: black;
   height: auto;
   width: auto;
-  text-align: center;
+  /* text-align: center; */
 }
 
 /* Still need to add links to the header somehow without messing up the centering */
@@ -160,4 +170,8 @@ h4 {
   height: 150px;
   width: 50px;
   text-align: center;
+}
+
+.header-nav-links {
+  margin: 0px;
 }
